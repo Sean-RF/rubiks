@@ -19,7 +19,8 @@ class statTracker:
 			return 'n/a'
 		else:
 			return self.correct/(self.correct + self.incorrect)
-
+	def get_total(self):
+		return self.correct + self.incorrect
 
 stats = []
 for i in range(len(letters)):
@@ -33,7 +34,7 @@ high = int(input('top index?'))
 def report():
 	global letters, colors
 	for i in range(low,high+1):
-		print(str(stats[i].get_colors()) + " (" + str(stats[i].get_letter()) + "): " + str(stats[i].accuracy()) + " (" + str(stats[i].correct+stats[i].incorrect) + " total)")
+		print(str(stats[i].get_colors()) + " (" + str(stats[i].get_letter()) + "): " + str(stats[i].correct) + "/" + str(stats[i].get_total()))
 	cont = input('continue? y/n, r to reverse\n')
 	if cont == 'r':
 		temp = letters
